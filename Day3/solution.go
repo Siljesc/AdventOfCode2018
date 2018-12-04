@@ -1,11 +1,11 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"regexp"
 	"strconv"
+
+	"../util"
 )
 
 type Coords struct {
@@ -13,13 +13,8 @@ type Coords struct {
 }
 
 func main() {
-	file, err := os.Open("input.txt")
-	if err != nil {
-		fmt.Println("File reading error", err)
-		return
-	}
 
-	scanner := bufio.NewScanner(file)
+	scanner, _ := util.ReadFile("input.txt")
 	fabric := make([][]int, 1000*1000)
 
 	overlappedCells := map[string][]Coords{}
